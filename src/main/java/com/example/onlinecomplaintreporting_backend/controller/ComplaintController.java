@@ -2,6 +2,7 @@ package com.example.onlinecomplaintreporting_backend.controller;
 
 import com.example.onlinecomplaintreporting_backend.dao.ComplaintDao;
 import com.example.onlinecomplaintreporting_backend.model.Complaints;
+import com.example.onlinecomplaintreporting_backend.model.Customers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -31,4 +32,21 @@ public HashMap<String,String> addcomplaint(@RequestBody Complaints c)
     {
         return (List<Map<String,String>>) dao.Compalints();
     }
+
+
+
+    @CrossOrigin(origins = "*")
+    @PostMapping(path = "/viewmycomplaint",consumes = "application/json",produces = "application/json")
+    public List<Map<String,String>> complaintview(@RequestBody Complaints c)
+    {
+        String id=String.valueOf(c.getUserid());
+        System.out.println(id);
+        return (List<Map<String,String>>) dao.complaintview(c.getUserid());
+
+    }
+
+
+
+
+
 }
