@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.sound.midi.Patch;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @RestController
 public class ComplaintController {
@@ -24,10 +25,10 @@ public HashMap<String,String> addcomplaint(@RequestBody Complaints c)
     }
 
 
-//    @CrossOrigin(origins = "*")
-//   @GetMapping(path = "/viewallcomplaint")
-//    public List<String,String> viewall()
-//    {
-//        return (List<String,String>) dao.Compalints();
-//    }
+    @CrossOrigin(origins = "*")
+   @GetMapping(path = "/viewallcomplaint")
+    public List<Map<String,String>> viewall()
+    {
+        return (List<Map<String,String>>) dao.Compalints();
+    }
 }
