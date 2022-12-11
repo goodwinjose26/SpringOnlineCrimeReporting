@@ -13,6 +13,8 @@ public interface ComplaintDao extends CrudRepository<Complaints,Integer> {
     @Query(value = "SELECT c. `address`,c. `email`,c. `name`, c. `phno`,s.compalaint FROM `customer` c JOIN complaints s on s.userid=c.id",nativeQuery = true)
     List<Map<String,String>> Compalints();
 
-    @Query(value = "SELECT c. `address`,c. `email`,c. `name`, c. `phno`,s.compalaint FROM `customer` c JOIN complaints s on s.userid=c.id where s.userid=:id",nativeQuery = true)
+    @Query(value = "SELECT `compalaint` FROM `complaints` WHERE `userid`=:id",nativeQuery = true)
     List<Map<String,String>> complaintview(@Param("id") Integer id);
+
+
 }
